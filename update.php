@@ -3,6 +3,7 @@
 include "config.php";
 
     if(isset($_POST['update'])){
+        
         $primeironome = $_POST['primeironome'];
         $ultimonome = $_POST['ultimonome'];
         $id = $_POST['id'];
