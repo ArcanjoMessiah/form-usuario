@@ -26,40 +26,8 @@ include "config.php";
             echo "erro:" .$sql."<br>" . $conn->error;
         };
     }
-?>
 
 
- <!DOCTYPE html>
- <html lang="en">
- <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
- </head>
- <body>
- <h2>Formulário de atualização</h2>
-
-
-    <form action="" method="POST">
-        Password: <br>
-        <input type="password" name="senha" value="<?php echo $password; ?>">
-            <?php if ($genero == 'Masculino') { echo "checked"; }?>
-        Gênero: <br>
-        <input type="radio" name="genero" value="Masculino">
-            <?php if ($genero == 'Masculino') { echo "checked"; }?>Masculino
-        <input type="radio" name="genero" value="Feminino">
-            <?php if ($genero == 'Feminino') { echo "checked"; }?>Feminino
-        <input type="radio" name="genero" value="Outros">
-            <?php if ($genero == 'Outros') { echo "checked"; }?>Outros
-
-    </form>
-    
- </body>
- </html>
-
-
-<?php
  if(isset($_GET['id'])){
     $id = $_GET['id'];
 
@@ -68,8 +36,49 @@ include "config.php";
 
     if($result->num_rows >0){
         while($row = $result->fetch_assoc()){
-            $primeironome = $row['']
+            $primeironome = $row ['primeironome'];
+            $ultimonome = $row['ultimonome'];
+            $id = $row['id'];
+            $email = $row['email'];
+            $password = $row['password'];
+            $genero = $row ['genero'];
+
         }
+        ?>
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+           <meta charset="UTF-8">
+           <meta http-equiv="X-UA-Compatible" content="IE=edge">
+           <meta name="viewport" content="width=device-width, initial-scale=1.0">
+           <title>Document</title>
+        </head>
+        <body>
+        <h2>Formulário de atualização</h2>
+       
+       
+           <form action="" method="POST">
+               Password: <br>
+               <input type="password" name="senha" value="<?php echo $password; ?>">
+                   <?php if ($genero == 'Masculino') { echo "checked"; }?>
+               Gênero: <br>
+               <input type="radio" name="genero" value="Masculino">
+                   <?php if ($genero == 'Masculino') { echo "checked"; }?>Masculino
+               <input type="radio" name="genero" value="Feminino">
+                   <?php if ($genero == 'Feminino') { echo "checked"; }?>Feminino
+               <input type="radio" name="genero" value="Outros">
+                   <?php if ($genero == 'Outros') { echo "checked"; }?>Outros
+       
+           </form>
+           
+        </body>
+        </html>
+        <?php
+
+    }
+    else {
+        echo "erro";
     }
  }
 
